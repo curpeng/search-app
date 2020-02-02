@@ -1,0 +1,138 @@
+inherit_from: .rubocop-performance.yml
+
+AllCops:
+  TargetRubyVersion: 2.6.3
+  Exclude:
+    - db/migrate/*
+    - db/seeds/*
+    - db/schema.rb
+    - db/seeds.rb
+    - script/**/*
+    - bin/**/*
+    - vendor/**/*
+    - test/**/*
+    - features/**/*
+    - Gemfile
+    - Gemfile.lock
+    - node_modules/**/*
+    - app/channels/application_cable/*
+    - config/environments/development.rb
+    - config/spring.rb
+    - config/application.rb
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+  # `and` and `or` are banned only in conditionals (conditionals)
+
+Style/BlockDelimiters:
+  EnforcedStyle: line_count_based
+  # The `line_count_based` style enforces braces around single line blocks and
+  # do..end around multi-line blocks.
+  Exclude:
+  - spec/**/*
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+  # Redirect_to usage in conditionals
+
+Style/FrozenStringLiteralComment:
+  # Ensure default is followed
+  Enabled: true
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+  # Use .positive? instead of > 0
+  # Use .zero? instead of == 0
+  # Use .nonzero? instead of != 0.
+
+Style/GlobalVars:
+  Enabled: true
+  AllowedVariables: [$ASSET_MODE]
+  # Do not introduce global variables. (used for cucumber custom_env)
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/UnpackFirst:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstParameterIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/TrivialAccessors:
+  Enabled: true
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - spec/**/**.rb
+    - config/routes.rb
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+  Severity: warning
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+
+Bundler/OrderedGems:
+  TreatCommentsAsGroupSeparators: true
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/IpAddresses:
+  Enabled: true
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/MultilineMethodSignature:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+Lint/DisjunctiveAssignmentInConstructor:
+  Enabled: true
+
+Lint/SafeNavigationWithEmpty:
+  Enabled: true
+
+Lint/ToJSON:
+  Enabled: true

@@ -1,0 +1,8 @@
+
+require: rubocop-performance
+
+Performance/ChainArrayAllocation:
+  Enabled: true
+
+Performance/OpenStruct:
+  Enabled: true
