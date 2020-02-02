@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+  Ruby 2.6.3
 
-Things you may want to cover:
+## Run this locally
 
-* Ruby version
+This project uses a .env file to read twitter credentials. Make a copy of
+the `.env.sample` file and update the environment variables to correspond with
+your setup.
 
-* System dependencies
+```bash
+$ cp .env.sample .env
+```
 
-* Configuration
+After that run:
 
-* Database creation
+```bash
+bundle install
+bundle exec rake db:create db:migrate
+bundle exec rails s
+```
 
-* Database initialization
+Now you are ready to run a search query:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+curl -v http://localhost:3000/messages/search?term=brexit
+```
